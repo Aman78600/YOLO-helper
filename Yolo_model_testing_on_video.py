@@ -3,9 +3,9 @@ from ultralytics import YOLO
 
 
 def main(model_path,video_path):
+    model=YOLO(model_path)
+    cap=cv2.VideoCapture(video_path)
     while True:
-        model=YOLO(model_path)
-        cap=cv2.VideoCapture(video_path)
         _,img=cap.read()
         result=model(img)
         cv2.imshow('respons',result[0].plot())
